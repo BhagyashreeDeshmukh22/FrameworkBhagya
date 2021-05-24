@@ -10,6 +10,8 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Parameters;
+
 import com.CRM.Utilities.BrowserFactory;
 import com.CRM.Utilities.ConfigDataProvider;
 import com.CRM.Utilities.ExcelDataProvider;
@@ -27,12 +29,25 @@ public class BaseClass {
 	public ExtentReports report;
 	public ExtentTest logger;
 	
-	@BeforeClass
+	/*@BeforeClass             (without using parameters)
 	public void setup()
 	{
 		 Reporter.log("Setting up Browsers and app url", true);
 		ldriver=BrowserFactory.startApp(config.getBrowser(),config.getURL(), ldriver);
-		 Reporter.log("Setting done and Browser has launched and Application is strat", true);
+		 
+		
+		Reporter.log("Setting done and Browser has launched and Application is strat", true);
+	}*/
+	
+	@Parameters({"browser","TestingUrl"})
+	@BeforeClass             
+	public void setup(String browser,String url)
+	{
+		 Reporter.log("Setting up Browsers and app url", true);
+		ldriver=BrowserFactory.startApp(browser,url, ldriver);
+		 
+		
+		Reporter.log("Setting done and Browser has launched and Application is strat", true);
 	}
 	@AfterClass
 	public void teardown()

@@ -51,11 +51,18 @@
         <version>3.0.0-M3</version>
         <configuration>
         <forkCount>0</forkCount>
-            <testFailureIgnore>true</testFailureIgnore>
+        <testFailureIgnore>true</testFailureIgnore>
+          
           <suiteXmlFiles>
-            <suiteXmlFile>XMLFiles/testng.xml</suiteXmlFile>
+            <suiteXmlFile>XMLFiles/${xmlfiles}</suiteXmlFile>
           </suiteXmlFiles>
-          </configuration>
+          
+         <systemPropertyVariables>
+         <executionbrowser>${browser}</executionbrowser>
+         <launchurl>${TestingUrl}</launchurl>
+         </systemPropertyVariables>
+         
+         </configuration>
       </plugin>
   </plugins>
   </build>
