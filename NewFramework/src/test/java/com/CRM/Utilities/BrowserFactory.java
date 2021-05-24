@@ -12,7 +12,7 @@ public static WebDriver startApp(String browser,String app_url,WebDriver ldriver
 {
 	if(browser.equals("Chrome"))
 	{
-		System.setProperty("webdriver.chrome.driver" , "./Drivers/chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver" , "./Drivers/chromedriver1.exe");
 		ldriver=new ChromeDriver();
 		ldriver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 	}
